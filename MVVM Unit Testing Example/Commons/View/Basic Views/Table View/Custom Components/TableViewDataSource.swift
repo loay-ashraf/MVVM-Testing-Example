@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SkeletonView
 
 class TableViewDataSource<T: CellViewModel>: NSObject, UITableViewDataSource {
     
@@ -51,6 +52,16 @@ class TableViewDataSource<T: CellViewModel>: NSObject, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         editResponder?.respondToEdit(editingStyle: editingStyle, atRow: indexPath.row)
+    }
+    
+}
+
+class SKTableViewDataSource<T: CellViewModel>: TableViewDataSource<T>, SkeletonTableViewDataSource {
+    
+    // MARK: - Data Source
+    
+    func collectionSkeletonView(_ skeletonView: UITableView, cellIdentifierForRowAt indexPath: IndexPath) -> ReusableCellIdentifier {
+        return cellClass?.reuseIdentifier ?? "TableViewCell"
     }
     
 }

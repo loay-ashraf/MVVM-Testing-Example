@@ -11,7 +11,7 @@ final class CatClient: WebServiceClient {
     
     // MARK: - User Search Methods
     
-    func fetchPublicImages(page: Int) async -> Result<[CatPicture],NetworkError> {
+    func fetchPublicImages(page: Int) async -> Result<[PublicImagesModel],NetworkError> {
         return await networkManager.dataRequest(request: CatRouter.fetchPuplicPictures(page: page))
     }
 

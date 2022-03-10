@@ -9,7 +9,7 @@ import Foundation
 
 protocol Model: Codable, Equatable {
     
-    associatedtype TableCellViewModelType: TableCellViewModel
+    associatedtype TableCellViewModelType: CellViewModel
     
     init()
     init(from tableCellViewModel: TableCellViewModelType)

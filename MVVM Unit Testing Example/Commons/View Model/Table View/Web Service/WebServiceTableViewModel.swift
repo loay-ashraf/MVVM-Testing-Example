@@ -8,11 +8,10 @@
 import Foundation
 
 typealias WebServicePlainTableViewModel = WebServicePlainViewModel & WebServiceTableViewModel
-typealias WebServiceSearchTableViewModel = WebServiceSearchViewModel & WebServiceTableViewModel
 
 protocol WebServiceTableViewModel: AnyObject {
     
-    associatedtype TableCellViewModelType: TableCellViewModel
+    associatedtype TableCellViewModelType: CellViewModel
     
     var cellViewModels: Observable<List<TableCellViewModelType>> { get set }
     var cellViewModelList: List<TableCellViewModelType> { get set }

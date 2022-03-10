@@ -7,8 +7,6 @@
 
 import Foundation
 import UIKit
-//import SVProgressHUD
-//import Kingfisher
 import Network
 
 // MARK: - Constants Shortcuts
@@ -38,7 +36,7 @@ struct Constants {
                 
             }
             
-            static let apiBaseUrl = "https://thecatapi.com/v1/"
+            static let apiBaseUrl = "https://api.thecatapi.com/v1"
             
             static let publicImages = "images/search"
             

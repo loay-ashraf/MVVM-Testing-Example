@@ -33,7 +33,7 @@ extension CatRouter {
     var path: String {
         
         switch self {
-        case .fetchPuplicPictures: return baseURL.appendPathComponent(NetworkingConstants.publicImages)
+        case .fetchPuplicPictures: return NetworkingConstants.publicImages
         }
         
     }

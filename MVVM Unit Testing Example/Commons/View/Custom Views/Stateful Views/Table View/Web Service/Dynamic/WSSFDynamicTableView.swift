@@ -17,7 +17,6 @@ class WSSFDynamicTableView: TableView, WSStatefulView {
     var errorAction: (() -> Void)?
     var footerErrorAction: (() -> Void)?
     
-    private var curtainView: UIView!
     private var emptyView: EmptyView!
     private var footerActivityIndicatorView: FooterActivityIndicatorView!
     private var errorView: ErrorView!
@@ -36,11 +35,7 @@ class WSSFDynamicTableView: TableView, WSStatefulView {
     }
     
     private func initializeSubviews() {
-        curtainView = {
-            let view = UIView(frame: frame)
-            view.backgroundColor = .systemBackground
-            return view
-        }()
+        isSkeletonable = true
         emptyView = EmptyView.instanceFromNib()
         footerActivityIndicatorView = FooterActivityIndicatorView.instanceFromNib()
         footerActivityIndicatorView.add(to: self)

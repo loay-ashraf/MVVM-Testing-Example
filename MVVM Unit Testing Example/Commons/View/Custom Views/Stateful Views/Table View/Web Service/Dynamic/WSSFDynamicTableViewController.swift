@@ -55,9 +55,9 @@ class WSSFDynamicTableViewController<T: WebServiceTableViewModel>: UITableViewCo
     
     func configureView() {
         // Setup table view data source and delegates
-        xTableView.setDataSource(tableViewDataSource)
-        xTableView.setDelegate(tableViewDelegate)
-        tableViewDelegate.scrollViewAction = { [weak self] in if (self?.viewModel.count) ?? 0 > 0 { self?.paginate() } }
+        tableViewDataSource != nil ? xTableView.setDataSource(tableViewDataSource) : nil
+        tableViewDelegate != nil ? xTableView.setDelegate(tableViewDelegate) : nil
+        tableViewDelegate?.scrollViewAction = { [weak self] in if (self?.viewModel.count) ?? 0 > 0 { self?.paginate() } }
         // Setup table view header, footer and content insets
         if xTableView.tableHeaderView == nil { xTableView.tableHeaderView = UIView() }
         if xTableView.tableFooterView == nil { xTableView.tableFooterView = UIView() }
