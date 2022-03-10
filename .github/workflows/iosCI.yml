@@ -1,0 +1,38 @@
+name: iOS CI
+
+on:
+  push:
+    branches: [ '**' ]
+  pull_request:
+    branches: [ '**' ]
+
+jobs:
+  build:
+    name: Build Tracker scheme
+    runs-on: macos-latest
+
+    strategy:
+          matrix:
+            run-config:
+              - { scheme: Tracker, destination: 'platform=iOS Simulator,OS=latest,name=iPhone 12' }
+              
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Install Cocoapods
+        run: gem install cocoapods
+      - name: Install project pods
+        run: pod install
+      - name: Show the currently detailed version of Xcode for CLI
+        run: xcode-select -p
+      - name: Show Build Settings
+        run: xcodebuild -workspace Tracker.xcworkspace -scheme '${{ matrix.run-config['scheme'] }}' -showBuildSettings
+      - name: Show Build SDK
+        run: xcodebuild -workspace Tracker.xcworkspace -scheme '${{ matrix.run-config['scheme'] }}' -showsdks
+      - name: Show Available Destinations
+        run: xcodebuild -workspace Tracker.xcworkspace -scheme '${{ matrix.run-config['scheme'] }}' -showdestinations
+      - name: clean
+        run: xcodebuild clean -workspace Tracker.xcworkspace -scheme '${{ matrix.run-config['scheme'] }}' -destination '${{ matrix.run-config['destination'] }}' -showBuildTimingSummary
+      - name: build
+        run: xcodebuild -workspace Tracker.xcworkspace -scheme '${{ matrix.run-config['scheme'] }}' -destination '${{ matrix.run-config['destination'] }}' -showBuildTimingSummary
+        
