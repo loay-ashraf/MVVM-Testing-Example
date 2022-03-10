@@ -7,7 +7,7 @@
 
 import XCTest
 import Alamofire
-@testable import MVVM_Unit_Testing_Example
+@testable import MVVM_Testing_Example
 
 class z_ModuleTests: XCTestCase {
 

@@ -1025,7 +1025,7 @@
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MVVM Unit Testing Example.app/MVVM Unit Testing Example";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MVVM Testing Example.app/MVVM Testing Example";
 			};
 			name = Debug;
 		};
@@ -1045,7 +1045,7 @@
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MVVM Unit Testing Example.app/MVVM Unit Testing Example";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MVVM Testing Example.app/MVVM Testing Example";
 			};
 			name = Release;
 		};
@@ -1224,7 +1224,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.loay.MVVM-Unit-Testing-Example";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.loay.MVVM-Testing-Example";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -1255,7 +1255,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.loay.MVVM-Unit-Testing-Example";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.loay.MVVM-Testing-Example";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;

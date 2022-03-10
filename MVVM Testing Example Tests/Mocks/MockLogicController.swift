@@ -6,7 +6,7 @@
 //
 
 import Foundation
-@testable import MVVM_Unit_Testing_Example
+@testable import MVVM_Testing_Example
 
 class MockPublicImagesLogicController: PublicImagesLogicController {
     
