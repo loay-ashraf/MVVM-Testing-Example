@@ -36,6 +36,7 @@ class PublicImagesViewController: WSSFDynamicTableViewController<PublicImagesVie
     override func configureView() {
         super.configureView()
 
+        xTableView.accessibilityIdentifier = "public_images_tableview"
         xTableView.contentInset = UIEdgeInsets(top: 20, left: 0, bottom: 0, right: 0)
     }
     

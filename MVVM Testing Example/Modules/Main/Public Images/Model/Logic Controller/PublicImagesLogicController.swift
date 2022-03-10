@@ -33,5 +33,4 @@ class PublicImagesLogicController: WebServicePlainLogicController {
         await webServiceClient.fetchPublicImages(page: modelList.currentPage)
     }
     
-    
 }

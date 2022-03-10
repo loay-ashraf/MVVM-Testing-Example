@@ -7,7 +7,7 @@
 
 import Foundation
 
-final class CatClient: WebServiceClient {
+class CatClient: WebServiceClient {
     
     // MARK: - User Search Methods
     
