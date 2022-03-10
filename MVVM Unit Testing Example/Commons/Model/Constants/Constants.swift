@@ -47,6 +47,9 @@ struct Constants {
             static let order = "order"
             static let page = "page"
             static let perPage = "limit"
+            
+            static let contentType = "Content-Type"
+            static let contentLength = "Content-Length"
     
             static let maxPageCount = 1000
             static let minimumPageCapacity = 10

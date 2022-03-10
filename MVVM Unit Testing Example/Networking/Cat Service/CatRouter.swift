@@ -12,6 +12,7 @@ enum CatRouter {
     
     // MARK: - Cat API Route cases
     
+    case fetchPuplicPictures(page: Int)
     
 }
 
@@ -32,7 +33,7 @@ extension CatRouter {
     var path: String {
         
         switch self {
-        default: break
+        case .fetchPuplicPictures: return baseURL.appendPathComponent(NetworkingConstants.publicImages)
         }
         
     }
@@ -42,7 +43,7 @@ extension CatRouter {
     var method: Alamofire.HTTPMethod {
         
         switch self {
-        default: break
+        case .fetchPuplicPictures: return .get
         }
         
     }
@@ -51,10 +52,10 @@ extension CatRouter {
     
     var headers: HTTPHeaders {
             
-        var headersDict : [String:String] = [:]
+        var headersDict: [String:String] = [:]
             
         switch self {
-        default: break
+        default: headersDict[NetworkingConstants.contentType] = "application/json"
         }
             
         return HTTPHeaders(headersDict)
@@ -65,10 +66,11 @@ extension CatRouter {
     
     var parameters: Parameters? {
             
-        var parametersDict : [String: Any] = [:]
+        var parametersDict: [String: Any] = [:]
             
         switch self {
-        default: break
+        case .fetchPuplicPictures(let page): parametersDict[NetworkingConstants.page] = page
+                                             parametersDict[NetworkingConstants.perPage] = NetworkingConstants.minimumPageCapacity
         }
             
         return parametersDict

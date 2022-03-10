@@ -14,20 +14,6 @@ typealias NetworkLoadingHandler = (NetworkError?) -> Void
 typealias DataResult = Result<Data,NetworkError>
 typealias ResponseResult<T> = Result<T,NetworkError> where T: Decodable
 
-// MARK: - Generic Response Types
-
-struct BatchResponse<Response: Decodable>: Decodable {
-    let count: Int
-    let incompleteResults: Bool
-    let items: [Response]
-    
-    enum CodingKeys: String, CodingKey {
-        case count = "total_count"
-        case incompleteResults = "incomplete_results"
-        case items
-    }
-}
-
 // MARK: - Error Types
 
 enum NetworkError: Error {
