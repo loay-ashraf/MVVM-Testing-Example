@@ -14,7 +14,7 @@ jobs:
     strategy:
           matrix:
             run-config:
-              - { scheme: MVVM Unit Testing Example, destination: 'platform=iOS Simulator,OS=latest,name=iPhone 12' }
+              - { scheme: 'MVVM Unit Testing Example', destination: 'platform=iOS Simulator,OS=latest,name=iPhone 12' }
               
     steps:
       - name: Checkout
@@ -26,13 +26,13 @@ jobs:
       - name: Show the currently detailed version of Xcode for CLI
         run: xcode-select -p
       - name: Show Build Settings
-        run: xcodebuild -workspace MVVM Unit Testing Example.xcworkspace -scheme '${{ matrix.run-config['scheme'] }}' -showBuildSettings
+        run: xcodebuild -workspace 'MVVM Unit Testing Example'.xcworkspace -scheme '${{ matrix.run-config['scheme'] }}' -showBuildSettings
       - name: Show Build SDK
-        run: xcodebuild -workspace MVVM Unit Testing Example.xcworkspace -scheme '${{ matrix.run-config['scheme'] }}' -showsdks
+        run: xcodebuild -workspace 'MVVM Unit Testing Example'.xcworkspace -scheme '${{ matrix.run-config['scheme'] }}' -showsdks
       - name: Show Available Destinations
-        run: xcodebuild -workspace MVVM Unit Testing Example.xcworkspace -scheme '${{ matrix.run-config['scheme'] }}' -showdestinations
+        run: xcodebuild -workspace 'MVVM Unit Testing Example'.xcworkspace -scheme '${{ matrix.run-config['scheme'] }}' -showdestinations
       - name: clean
-        run: xcodebuild clean -workspace MVVM Unit Testing Example.xcworkspace -scheme '${{ matrix.run-config['scheme'] }}' -destination '${{ matrix.run-config['destination'] }}' -showBuildTimingSummary
+        run: xcodebuild clean -workspace 'MVVM Unit Testing Example'.xcworkspace -scheme '${{ matrix.run-config['scheme'] }}' -destination '${{ matrix.run-config['destination'] }}' -showBuildTimingSummary
       - name: build
-        run: xcodebuild -workspace MVVM Unit Testing Example.xcworkspace -scheme '${{ matrix.run-config['scheme'] }}' -destination '${{ matrix.run-config['destination'] }}' -showBuildTimingSummary
+        run: xcodebuild -workspace 'MVVM Unit Testing Example'.xcworkspace -scheme '${{ matrix.run-config['scheme'] }}' -destination '${{ matrix.run-config['destination'] }}' -showBuildTimingSummary
         
