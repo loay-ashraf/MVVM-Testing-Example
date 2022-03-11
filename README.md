@@ -1,8 +1,11 @@
 # MVVM Testing Example
 
 <p float="left">
-<a href="https://github.com/loay-ashraf/GitIt/actions/workflows/iosCI.yml">
-<img src="https://img.shields.io/github/workflow/status/loay-ashraf/GitIt/iOS%20CI">
+<a href="https://github.com/loay-ashraf/GitIt/actions/workflows/iOSBuildCI.yml">
+<img src="https://img.shields.io/github/workflow/status/loay-ashraf/MVVM-Testing-Example/iOS%20Build%20CI">
+</a>
+<a href="https://github.com/loay-ashraf/GitIt/actions/workflows/iOSTestCI.yml">
+<img src="https://img.shields.io/github/workflow/status/loay-ashraf/MVVM-Testing-Example/iOS%20Test%20CI?label=test">
 </a>
 <a href="https://en.wikipedia.org/wiki/Model–view–viewmodel">
 <img src="https://img.shields.io/badge/architecture-MVVM-brightgreen">
