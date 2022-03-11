@@ -1,0 +1,32 @@
+name: iOS Test CI
+
+on:
+  workflow_run:
+    workflows: ["iOS Build CI"]
+    types:
+      - completed
+
+jobs:
+  build:
+    name: Build MVVM Unit Testing Example scheme
+    runs-on: macos-latest
+
+    strategy:
+          matrix:
+            run-config:
+              - { scheme: 'MVVM Testing Example', destination: 'platform=iOS Simulator,OS=latest,name=iPhone 12' }
+              
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Install Cocoapods
+        run: gem install cocoapods
+      - name: Install project pods
+        run: pod install
+      - name: Show the currently detailed version of Xcode for CLI
+        run: xcode-select -p
+      - name: clean
+        run: xcodebuild clean -workspace 'MVVM Testing Example'.xcworkspace -scheme '${{ matrix.run-config['scheme'] }}' -destination '${{ matrix.run-config['destination'] }}' -showBuildTimingSummary
+      - name: test
+        run: xcodebuild test -workspace 'MVVM Testing Example'.xcworkspace -scheme '${{ matrix.run-config['scheme'] }}' -destination '${{ matrix.run-config['destination'] }}' -showBuildTimingSummary
+        
