@@ -35,6 +35,3 @@ jobs:
         run: xcodebuild clean -workspace 'MVVM Testing Example'.xcworkspace -scheme '${{ matrix.run-config['scheme'] }}' -destination '${{ matrix.run-config['destination'] }}' -showBuildTimingSummary
       - name: build
         run: xcodebuild -workspace 'MVVM Testing Example'.xcworkspace -scheme '${{ matrix.run-config['scheme'] }}' -destination '${{ matrix.run-config['destination'] }}' -showBuildTimingSummary
-      - name: test
-        run: xcodebuild test -workspace 'MVVM Testing Example'.xcworkspace -scheme '${{ matrix.run-config['scheme'] }}' -destination '${{ matrix.run-config['destination'] }}' -showBuildTimingSummary
-        
