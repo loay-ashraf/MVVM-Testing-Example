@@ -3,12 +3,27 @@ name: iOS Build CI
 on:
   push:
     branches: [ '**' ]
+    paths: 
+    - '.github/workflows/**'
+    - 'MVVM Testing Example/**'
+    - 'MVVM Testing Example Tests/**'
+    - 'MVVM Testing Example UITests/**'
+    - 'Podfile'
+    - 'Podfile.lock'
+    
   pull_request:
     branches: [ '**' ]
+    paths:
+    - '.github/workflows/**'
+    - 'MVVM Testing Example/**'
+    - 'MVVM Testing Example Tests/**'
+    - 'MVVM Testing Example UITests/**'
+    - 'Podfile'
+    - 'Podfile.lock'
 
 jobs:
   build:
-    name: Build MVVM Unit Testing Example scheme
+    name: Build MVVM Testing Example scheme
     runs-on: macos-latest
 
     strategy:
