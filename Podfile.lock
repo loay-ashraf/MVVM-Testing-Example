@@ -1,12 +1,26 @@
 PODS:
   - Alamofire (5.5.0)
   - Kingfisher (7.1.2)
+  - OHHTTPStubs/Core (9.1.0)
+  - OHHTTPStubs/Default (9.1.0):
+    - OHHTTPStubs/Core
+    - OHHTTPStubs/JSON
+    - OHHTTPStubs/NSURLSession
+    - OHHTTPStubs/OHPathHelpers
+  - OHHTTPStubs/JSON (9.1.0):
+    - OHHTTPStubs/Core
+  - OHHTTPStubs/NSURLSession (9.1.0):
+    - OHHTTPStubs/Core
+  - OHHTTPStubs/OHPathHelpers (9.1.0)
+  - OHHTTPStubs/Swift (9.1.0):
+    - OHHTTPStubs/Default
   - SkeletonView (1.29.2)
   - SVProgressHUD (2.2.5)
 
 DEPENDENCIES:
   - Alamofire (~> 5.5)
   - Kingfisher (~> 7.0)
+  - OHHTTPStubs/Swift
   - SkeletonView
   - SVProgressHUD
 
@@ -14,15 +28,17 @@ SPEC REPOS:
   trunk:
     - Alamofire
     - Kingfisher
+    - OHHTTPStubs
     - SkeletonView
     - SVProgressHUD
 
 SPEC CHECKSUMS:
   Alamofire: 1c4fb5369c3fe93d2857c780d8bbe09f06f97e7c
   Kingfisher: 44ed6a8504763f27bab46163adfac83f5deb240c
+  OHHTTPStubs: 90eac6d8f2c18317baeca36698523dc67c513831
   SkeletonView: 915a80ecc2b6421ab7ac0f0212321c0cc1406472
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
 
-PODFILE CHECKSUM: d4b2ab3bea86a93f70b172b5f0d2c630ee16f000
+PODFILE CHECKSUM: 987f0ebd9c1c8eacf1f6c5b473bebb13cc09b510
 
 COCOAPODS: 1.11.2

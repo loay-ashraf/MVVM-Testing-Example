@@ -1,5 +1,5 @@
 //
-//  ModuleTests.swift
+//  ModuleRealTests.swift
 //  MVVM Unit Testing Example Tests
 //
 //  Created by Loay Ashraf on 10/03/2022.
@@ -9,7 +9,7 @@ import XCTest
 import Alamofire
 @testable import MVVM_Testing_Example
 
-class z_ModuleTests: XCTestCase {
+class z_ModuleRealTests: XCTestCase {
 
     // vmUT = Model under test
     var vmUT: PublicImagesViewModel!

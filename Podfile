@@ -19,5 +19,6 @@ target 'MVVM Testing Example Tests' do
 
   # Pods for MVVM Unit Testing Example
   pod 'Alamofire', '~> 5.5'
+  pod 'OHHTTPStubs/Swift'
 
 end
