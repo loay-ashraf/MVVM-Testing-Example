@@ -20,6 +20,17 @@ This is an example of using XCTest framework to test a simple application built 
 
 - Application of FIRST principles 
 - Unit testing Model and View Model as separate units with Mocks and Stubs
-- Unit testing Model and View Model as one unit to verify data flow
+- Unit testing whole module (Model with View Model) with stubbed response to ensure correct data flow
+- Unit testing whole module (Model with View Model) with real response to ensure backend service is working
 - UI testing View to verify user interactions
 - UI testing application startup performance
+
+## References
+
+### Third Party Libraries
+* [Alamofire](https://github.com/Alamofire/Alamofire)
+* [OHHTTPStubs](https://github.com/AliSoftware/OHHTTPStubs)
+
+### Tools
+* Xcode 13.2
+* iPhone 12 Simulator (iOS 14.5)
