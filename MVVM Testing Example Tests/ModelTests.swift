@@ -14,8 +14,8 @@ class a_ModelTests: XCTestCase {
     var mUT: PublicImagesLogicController!
     var mockClient: MockCatClient!
     
-    var resultModels: [PublicImagesModel] = []
-    var mockModels: [PublicImagesModel] { return mockClient.mockModels }
+    var resultResponse: [PublicImagesModel] = []
+    var stubbedResponse: [PublicImagesModel] { return mockClient.stubbedResponse }
     
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
@@ -34,36 +34,38 @@ class a_ModelTests: XCTestCase {
         let expectation = expectation(description: "Fetch Timed out")
         Task {
             let _ = await mUT.load()
-            resultModels = mUT.modelList.items
+            resultResponse = mUT.modelList.items
             expectation.fulfill()
         }
         waitForExpectations(timeout: 5, handler: nil)
-        XCTAssertFalse(resultModels.isEmpty)
-        XCTAssertEqual(resultModels.count, NetworkingConstants.minimumPageCapacity)
-        for (mockModel,model) in zip(mockModels, resultModels) {
-            XCTAssertEqual(mockModel, model)
+        XCTAssertTrue(mockClient.isFetchPublicImagesCalled)
+        XCTAssertFalse(resultResponse.isEmpty)
+        XCTAssertEqual(resultResponse.count, NetworkingConstants.minimumPageCapacity)
+        for (stubbedResponseItem,responseItem) in zip(stubbedResponse, resultResponse) {
+            XCTAssertEqual(stubbedResponseItem, responseItem)
         }
     }
     
     func testModelPaginate() throws {
-        let paginatedMockModels: Array<PublicImagesModel> = {
+        let paginatedStubbedResponse: Array<PublicImagesModel> = {
             var array = Array<PublicImagesModel>()
-            array.append(contentsOf: mockModels)
-            array.append(contentsOf: mockModels)
+            array.append(contentsOf: stubbedResponse)
+            array.append(contentsOf: stubbedResponse)
             return array
         }()
         let expectation = expectation(description: "Fetch Timed out")
         Task {
             let _ = await mUT.load()
             let _ = await mUT.paginate()
-            resultModels = mUT.modelList.items
+            resultResponse = mUT.modelList.items
             expectation.fulfill()
         }
         waitForExpectations(timeout: 5, handler: nil)
-        XCTAssertFalse(resultModels.isEmpty)
-        XCTAssertEqual(resultModels.count, 2*NetworkingConstants.minimumPageCapacity)
-        for (mockModel,model) in zip(paginatedMockModels, resultModels) {
-            XCTAssertEqual(mockModel, model)
+        XCTAssertTrue(mockClient.isFetchPublicImagesCalled)
+        XCTAssertFalse(resultResponse.isEmpty)
+        XCTAssertEqual(resultResponse.count, 2*NetworkingConstants.minimumPageCapacity)
+        for (stubbedResponseItem,responseItem) in zip(paginatedStubbedResponse, resultResponse) {
+            XCTAssertEqual(stubbedResponseItem, responseItem)
         }
     }
     
@@ -73,14 +75,15 @@ class a_ModelTests: XCTestCase {
             let _ = await mUT.load()
             let _ = await mUT.paginate()
             let _ = await mUT.refresh()
-            resultModels = mUT.modelList.items
+            resultResponse = mUT.modelList.items
             expectation.fulfill()
         }
         waitForExpectations(timeout: 5, handler: nil)
-        XCTAssertFalse(resultModels.isEmpty)
-        XCTAssertEqual(resultModels.count, NetworkingConstants.minimumPageCapacity)
-        for (mockModel,model) in zip(mockModels, resultModels) {
-            XCTAssertEqual(mockModel, model)
+        XCTAssertTrue(mockClient.isFetchPublicImagesCalled)
+        XCTAssertFalse(resultResponse.isEmpty)
+        XCTAssertEqual(resultResponse.count, NetworkingConstants.minimumPageCapacity)
+        for (stubbedResponseItem,responseItem) in zip(stubbedResponse, resultResponse) {
+            XCTAssertEqual(stubbedResponseItem, responseItem)
         }
     }
 

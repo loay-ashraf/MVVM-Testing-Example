@@ -292,7 +292,7 @@
 		C66DCDAB27D9E65000221FE8 /* MVVM Testing Example Tests */ = {
 			isa = PBXGroup;
 			children = (
-				C66DCDB727DA228D00221FE8 /* Mocks */,
+				C66DCDB727DA228D00221FE8 /* Mocks and Stubs */,
 				C66DCDBC27DA23DD00221FE8 /* ModuleTests.swift */,
 				C66DCDB327D9E78700221FE8 /* ModelTests.swift */,
 				C66DCDAC27D9E65000221FE8 /* ViewModelTests.swift */,
@@ -300,13 +300,13 @@
 			path = "MVVM Testing Example Tests";
 			sourceTree = "<group>";
 		};
-		C66DCDB727DA228D00221FE8 /* Mocks */ = {
+		C66DCDB727DA228D00221FE8 /* Mocks and Stubs */ = {
 			isa = PBXGroup;
 			children = (
 				C66DCDB827DA22F000221FE8 /* MockLogicController.swift */,
 				C66DCDBA27DA230000221FE8 /* MockWebServiceClient.swift */,
 			);
-			path = Mocks;
+			path = "Mocks and Stubs";
 			sourceTree = "<group>";
 		};
 		C66DCDC527DA33CC00221FE8 /* MVVM Testing Example UITests */ = {

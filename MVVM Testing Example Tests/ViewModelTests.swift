@@ -15,7 +15,7 @@ class b_ViewModelTests: XCTestCase {
     var mockLogicController: MockPublicImagesLogicController!
 
     var resultCellViewModels: [PublicImagesTableCellViewModel] = []
-    var mockModels: [PublicImagesModel] { return mockLogicController.mockModels }
+    var stubbedModel: [PublicImagesModel] { return mockLogicController.stubbedModel }
     
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
@@ -41,10 +41,11 @@ class b_ViewModelTests: XCTestCase {
             expectation.fulfill()
         }
         waitForExpectations(timeout: 5, handler: nil)
+        XCTAssertTrue(mockLogicController.isFetchDataCalled)
         XCTAssertFalse(resultCellViewModels.isEmpty)
         XCTAssertEqual(resultCellViewModels.count, NetworkingConstants.minimumPageCapacity)
-        for (mockModel,cellViewModel) in zip(mockModels, resultCellViewModels) {
-            XCTAssertEqual(mockModel.url, cellViewModel.imageURL)
+        for (stubbedModelItem,resultCellViewModelItem) in zip(stubbedModel, resultCellViewModels) {
+            XCTAssertEqual(stubbedModelItem.url, resultCellViewModelItem.imageURL)
         }
     }
     
@@ -57,10 +58,11 @@ class b_ViewModelTests: XCTestCase {
             expectation.fulfill()
         }
         waitForExpectations(timeout: 5, handler: nil)
+        XCTAssertTrue(mockLogicController.isFetchDataCalled)
         XCTAssertFalse(resultCellViewModels.isEmpty)
         XCTAssertEqual(resultCellViewModels.count, 2*NetworkingConstants.minimumPageCapacity)
-        for (mockModel,cellViewModel) in zip(mockModels, resultCellViewModels) {
-            XCTAssertEqual(mockModel.url, cellViewModel.imageURL)
+        for (stubbedModelItem,resultCellViewModelItem) in zip(stubbedModel, resultCellViewModels) {
+            XCTAssertEqual(stubbedModelItem.url, resultCellViewModelItem.imageURL)
         }
     }
     
@@ -74,10 +76,11 @@ class b_ViewModelTests: XCTestCase {
             expectation.fulfill()
         }
         waitForExpectations(timeout: 5, handler: nil)
+        XCTAssertTrue(mockLogicController.isFetchDataCalled)
         XCTAssertFalse(resultCellViewModels.isEmpty)
         XCTAssertEqual(resultCellViewModels.count, NetworkingConstants.minimumPageCapacity)
-        for (mockModel,cellViewModel) in zip(mockModels, resultCellViewModels) {
-            XCTAssertEqual(mockModel.url, cellViewModel.imageURL)
+        for (stubbedModelItem,resultCellViewModelItem) in zip(stubbedModel, resultCellViewModels) {
+            XCTAssertEqual(stubbedModelItem.url, resultCellViewModelItem.imageURL)
         }
     }
 
