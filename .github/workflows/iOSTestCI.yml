@@ -8,7 +8,7 @@ on:
 
 jobs:
   build:
-    name: Test MVVM Unit Testing Example scheme
+    name: Test MVVM Testing Example scheme
     runs-on: macos-latest
 
     strategy:
